@@ -1,12 +1,19 @@
-﻿using GoTo.Service.App_srart;
+﻿using Autofac;
+using Autofac.Integration.WebApi;
+using GoTo.Service.App_srart;
+using GoTo.Service.Configurations;
+using GoTo.Service.Provider.Interface.Managers;
+using GoTo.Service.Provider.Managers;
+using GoTo.Service.Storage.Intergace.Managers;
+using GoTo.Service.Storage.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Security;
 using System.Web.SessionState;
-using GoTo.Service.DepencyConfigurator;
 
 namespace GoTo.Service
 {
@@ -15,8 +22,19 @@ namespace GoTo.Service
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            AutofacConfigurator.ConfigureContainer();
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            var builder = new ContainerBuilder();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
+
+
+
+            builder.RegisterType<OfferManager>().As<IOfferManager>().InstancePerRequest();
+
+            builder.RegisterType<OffersDataManager>().As<IOffersDataManager>().WithParameter("goToDbConnectionString", GoToServiceConfig.GoToDbConnectionString).InstancePerRequest();
+
+            var container = builder.Build();
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
 
         protected void Session_Start(object sender, EventArgs e)

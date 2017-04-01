@@ -14,7 +14,7 @@ namespace GoTo.Service.Provider.Managers
     {
         private IOffersDataManager _offersDataManager;
 
-        internal OfferManager(IOffersDataManager offerDataManager)
+        public OfferManager(IOffersDataManager offerDataManager)
         {
             _offersDataManager = offerDataManager;
         }
@@ -23,7 +23,7 @@ namespace GoTo.Service.Provider.Managers
         {
             var offersDataModel = _offersDataManager.GetOffers();
             var offers = offersDataModel.Select(p => new Offer(p)).ToList();
-            return offers;
+            return null;
         }
     }
 }
