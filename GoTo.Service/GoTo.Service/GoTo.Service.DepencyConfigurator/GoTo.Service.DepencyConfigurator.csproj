@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37A9A92D-F457-49BF-A8E8-062D3930B05A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoTo.Service.DepencyConfigurator</RootNamespace>
+    <AssemblyName>GoTo.Service.DepencyConfigurator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DepencyConfigurator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoTo.Service.Configurations\GoTo.Service.Configurations.csproj">
+      <Project>{c0688486-5e19-4266-8bc3-9e4312a87107}</Project>
+      <Name>GoTo.Service.Configurations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoTo.Service.Provider.Interface\GoTo.Service.Provider.Interface.csproj">
+      <Project>{7a6ff777-10c1-41d4-b3ef-cba735eca2bc}</Project>
+      <Name>GoTo.Service.Provider.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoTo.Service.Provider\GoTo.Service.Provider.csproj">
+      <Project>{7e3a627a-3b9a-42da-8fda-b7c1aa8e3bef}</Project>
+      <Name>GoTo.Service.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoTo.Service.Storage.Intergace\GoTo.Service.Storage.Intergace.csproj">
+      <Project>{6d26b26a-7ee3-4c6a-bbb8-3986ff98a615}</Project>
+      <Name>GoTo.Service.Storage.Intergace</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoTo.Service.Storage\GoTo.Service.Storage.csproj">
+      <Project>{0d2b8f55-7773-4ac8-9a9e-d6ee51b777c5}</Project>
+      <Name>GoTo.Service.Storage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
