@@ -1,9 +1,10 @@
-
 Use [GoToDB] 
-IF NOT EXISTS (SELECT * FROM sys.tables
+IF EXISTS (SELECT * FROM sys.tables
 WHERE name = N'Offers' AND type = 'U')
 BEGIN
---DROP TABLE [GoTo].Offers 
+DROP TABLE [GoTo].Offers 
+END
+GO
 CREATE TABLE [GoTo].Offers
 (
    id               UNIQUEIDENTIFIER  NOT NULL PRIMARY KEY,
@@ -17,5 +18,4 @@ CREATE TABLE [GoTo].Offers
    MeetDateTime	DATETIME NOT NULL,
    CreatedDateTime	DATETIME NOT NULL
 
-)
-END
+);

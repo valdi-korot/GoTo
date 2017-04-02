@@ -35,7 +35,7 @@ namespace GoTo.Service.App_srart
 
 
             builder.RegisterType<OfferManager>().As<IOfferManager>().InstancePerRequest();
-            builder.RegisterType<AuthRepository>().AsSelf().InstancePerRequest()..WithParameter("authConnectionString", GoToServiceConfig.GoToDbConnectionString)
+            builder.RegisterType<AuthRepository>().AsSelf().InstancePerRequest().WithParameter("authConnectionString", GoToServiceConfig.GoToDbConnectionString);
 
             builder.RegisterType<OffersDataManager>().As<IOffersDataManager>().WithParameter("goToDbConnectionString", GoToServiceConfig.GoToDbConnectionString).InstancePerRequest();
 

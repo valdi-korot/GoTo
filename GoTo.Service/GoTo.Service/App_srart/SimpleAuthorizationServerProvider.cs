@@ -1,4 +1,5 @@
-﻿using GoTo.Service.UserManager;
+﻿using GoTo.Service.Configurations;
+using GoTo.Service.UserManager;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
@@ -19,7 +20,7 @@ namespace GoTo.Service.App_srart
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
+            using (AuthRepository _repo = new AuthRepository(GoToServiceConfig.GoToDbConnectionString))
             {
                 IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
 
