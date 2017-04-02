@@ -17,5 +17,8 @@ namespace GoTo.Service.Provider.Interface.Models
         string Type { get; set; }
         DateTime MeetDateTime { get; set; }
         DateTime CreatedDateTime { get; set; }
+
+        IOffer Save();
     }
+    
 }

@@ -6,6 +6,6 @@ namespace GoTo.Service.Storage.Intergace.Managers
     public interface IOffersDataManager
     {
         IReadOnlyCollection<OfferDataModel> GetOffers();
-        OfferDataModel InsertOffer();
+        OfferDataModel InsertOffer(OfferDataModel offerDataModel);
     }
 }

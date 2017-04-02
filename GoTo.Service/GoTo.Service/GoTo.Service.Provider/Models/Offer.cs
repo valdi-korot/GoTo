@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using GoTo.Service.Provider.Interface.Models;
 using GoTo.Service.Storage.Intergace.Models;
+using GoTo.Service.Storage.Intergace.Managers;
 
 namespace GoTo.Service.Provider.Models
 {
     internal sealed class Offer : IOffer
     {
+        private readonly IOffersDataManager dataManager;
+        public string Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public double Longitude { get; set; }
@@ -31,5 +34,18 @@ namespace GoTo.Service.Provider.Models
             MeetDateTime = offerDataModel.MeetDateTime;
             CreatedDateTime = offerDataModel.CreatedDateTime;
         }
+        internal Offer()
+        {
+            Id = Guid.NewGuid().ToString();
+            CreatedDateTime = DateTime.Now;
+        }
+
+        public void Save()
+        {
+            dataManager.InsertOffer(new OfferDataModel { AuthorID = AuthorID, Description = Description,
+                Latitude = Latitude, Longitude = Longitude, MeetDateTime = MeetDateTime, Status = Status,
+                Title = Title, Type = Type });
+        }
+
     }
 }

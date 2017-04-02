@@ -149,6 +149,10 @@
     <Compile Include="UserManager\Models\UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Library\GoTo.Service.Contracts\GoTo.Service.Contracts.csproj">
+      <Project>{91faebf7-9465-4153-ae3f-adbb97260a15}</Project>
+      <Name>GoTo.Service.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="GoTo.Service.Configurations\GoTo.Service.Configurations.csproj">
       <Project>{c0688486-5e19-4266-8bc3-9e4312a87107}</Project>
       <Name>GoTo.Service.Configurations</Name>
