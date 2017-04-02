@@ -23,6 +23,11 @@ namespace GoTo.Service
         protected void Application_Start(object sender, EventArgs e)
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            RegisterDepency();
+        }
+
+        private void RegisterDepency()
+        {
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
@@ -36,7 +41,6 @@ namespace GoTo.Service
             var container = builder.Build();
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
-
         protected void Session_Start(object sender, EventArgs e)
         {
 
