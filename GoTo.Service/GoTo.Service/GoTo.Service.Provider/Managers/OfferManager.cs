@@ -23,7 +23,7 @@ namespace GoTo.Service.Provider.Managers
         {
             var offersDataModel = _offersDataManager.GetOffers();
             var offers = offersDataModel.Select(p => new Offer(p)).ToList();
-            return null;
+            return offers;
         }
     }
 }
