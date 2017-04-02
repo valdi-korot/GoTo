@@ -5,8 +5,8 @@ namespace GoTo.Service.UserManager
 {
     public class AuthContext : IdentityDbContext<IdentityUser>
     {
-        public AuthContext():
-            base(GoToServiceConfig.GoToDbConnectionString)
+        public AuthContext(string authConnectionString):
+            base(authConnectionString)
         { }
     }
 }

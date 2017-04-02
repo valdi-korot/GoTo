@@ -12,9 +12,9 @@ namespace GoTo.Service.UserManager
 
         private UserManager<IdentityUser> _userManager;
 
-        public AuthRepository()
+        public AuthRepository(string authConnectionString)
         {
-            _ctx = new AuthContext();
+            _ctx = new AuthContext(authConnectionString);
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
