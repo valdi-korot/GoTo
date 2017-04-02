@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GoTo.Service.App_srart
 {
-    public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
+    public sealed class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {

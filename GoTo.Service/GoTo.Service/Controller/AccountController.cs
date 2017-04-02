@@ -1,17 +1,13 @@
 ﻿using GoTo.Service.UserManager;
 using GoTo.Service.UserManager.Models;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace GoTo.Service.Controller
 {
     [RoutePrefix("account")]
-    public class AccountController : ApiController
+    public sealed class AccountController : ApiController
     {
         private readonly AuthRepository _authRepository;
 

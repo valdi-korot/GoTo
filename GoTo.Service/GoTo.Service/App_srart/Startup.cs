@@ -16,7 +16,7 @@ using System.Web.Http;
 [assembly: OwinStartup(typeof(GoTo.Service.App_srart.Startup))]
 namespace GoTo.Service.App_srart
 {
-    public class Startup
+    public sealed class Startup
     {
         public void Configuration(IAppBuilder app)
         {

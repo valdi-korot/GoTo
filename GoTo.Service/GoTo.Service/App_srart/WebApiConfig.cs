@@ -2,7 +2,7 @@
 
 namespace GoTo.Service.App_srart
 {
-    public class WebApiConfig
+    public sealed class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
