@@ -21,5 +21,12 @@ namespace GoTo.Service.Controller
             var offers = _offerManager.GetOffers();
             return Request.CreateResponse(offers);
         }
+        [Route("offers")]
+        [HttpPost]
+        public HttpResponseMessage CreateOffer()
+        {
+            var offers = _offerManager.GetOffers();
+            return Request.CreateResponse(offers);
+        }
     }
 }
