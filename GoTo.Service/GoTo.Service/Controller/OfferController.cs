@@ -4,6 +4,7 @@ using GoTo.Service.Provider.Interface.Managers;
 
 namespace GoTo.Service.Controller
 {
+    [Authorize]
     public class OfferController : ApiController
     {
         private readonly IOfferManager _offerManager;
