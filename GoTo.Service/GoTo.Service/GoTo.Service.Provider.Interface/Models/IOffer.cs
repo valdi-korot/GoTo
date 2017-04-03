@@ -8,7 +8,8 @@ namespace GoTo.Service.Provider.Interface.Models
 {
     public interface IOffer
     {
-        string Title { get; }
+        string Id { get; set; }
+        string Title { get; set; }
         string Description { get; set; }
         double Longitude { get; set; }
         double Latitude { get; set; }
@@ -18,7 +19,7 @@ namespace GoTo.Service.Provider.Interface.Models
         DateTime MeetDateTime { get; set; }
         DateTime CreatedDateTime { get; set; }
 
-        IOffer Save();
+        void Save();
     }
     
 }

@@ -19,6 +19,11 @@ namespace GoTo.Service.Provider.Managers
             _offersDataManager = offerDataManager;
         }
 
+        public IOffer CreateOffer()
+        {
+            return new Offer(_offersDataManager);
+        }
+
         public IReadOnlyCollection<IOffer> GetOffers()
         {
             var offersDataModel = _offersDataManager.GetOffers();

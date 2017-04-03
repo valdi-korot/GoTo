@@ -20,10 +20,10 @@ namespace GoTo.Service.Storage.Managers
         }
         public OfferDataModel CreateOffer(OfferDataModel offerDataModel)
         {
-            db.Database.SqlQuery<OfferDataModel>(
-            "EXEC ProcName  @id, @title, @description,@Longitude,@Latitude,@AuthorID,@Status," +
-            "@Type,@MeetDateTime,@CreatedDateTime)",
-             new SqlParameter("id", offerDataModel.AuthorID),
+            db.Database.ExecuteSqlCommand(
+            "EXEC  [GoTo].[CreateOffer]  @id, @title, @description,@Longitude,@Latitude,@AuthorID,@Status," +
+            "@Type,@MeetDateTime,@CreatedDateTime",
+             new SqlParameter("id", offerDataModel.Id),
              new SqlParameter("title", offerDataModel.Title),
              new SqlParameter("description", offerDataModel.Description),
              new SqlParameter("Longitude", offerDataModel.Longitude),

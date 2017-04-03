@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 
 namespace GoTo.Service.Controller
 {
-    [Authorize]
+    //[Authorize]
     public class OfferController : ApiController
     {
         private readonly IOfferManager _offerManager;
@@ -25,11 +25,17 @@ namespace GoTo.Service.Controller
         }
         [Route("offers")]
         [HttpPost]
-        public HttpResponseMessage CreateOffer(OfferIncomingContract offerIncoming) 
+        public HttpResponseMessage CreateOffer(OfferIncomingContract offerIncoming)
         {
             var offer = _offerManager.CreateOffer();
-            offer.AuthorID= User.Identity.GetUserId();
-            //write code when been added functional in OfferIncomingController
+            offer.AuthorID = User.Identity.GetUserId() ?? "SomeId";//delete this when Vlad doing auth tokens
+            offer.Title = offerIncoming.Title;
+            offer.Description = offerIncoming.Description;
+            offer.Longitude = offerIncoming.Longitude;
+            offer.Latitude = offerIncoming.Latitude;
+            offer.Status = offerIncoming.Status;
+            offer.Type = offerIncoming.Type;
+            offer.MeetDateTime = offerIncoming.MeetDateTime;
             offer.Save();
             return Request.CreateResponse(offer);
         }

@@ -34,16 +34,17 @@ namespace GoTo.Service.Provider.Models
             MeetDateTime = offerDataModel.MeetDateTime;
             CreatedDateTime = offerDataModel.CreatedDateTime;
         }
-        internal Offer()
+        internal Offer(IOffersDataManager offerDataManager)
         {
+            dataManager = offerDataManager;
             Id = Guid.NewGuid().ToString();
             CreatedDateTime = DateTime.Now;
         }
 
         public void Save()
         {
-            dataManager.InsertOffer(new OfferDataModel { AuthorID = AuthorID, Description = Description,
-                Latitude = Latitude, Longitude = Longitude, MeetDateTime = MeetDateTime, Status = Status,
+            dataManager.CreateOffer(new OfferDataModel {Id=Id, AuthorID = AuthorID, Description = Description,
+                Latitude = Latitude, Longitude = Longitude,CreatedDateTime=CreatedDateTime, MeetDateTime = MeetDateTime, Status = Status,
                 Title = Title, Type = Type });
         }
 
