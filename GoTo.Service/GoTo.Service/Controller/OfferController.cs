@@ -39,5 +39,12 @@ namespace GoTo.Service.Controller
             offer.Save();
             return Request.CreateResponse(offer);
         }
+        [Route("offers/{authorId}")]
+        [HttpGet]
+        public HttpResponseMessage GetOffersByAuthorId(string AuthorId)
+        {
+            var offers = _offerManager.GetOffersByAuthorId(AuthorId);
+            return Request.CreateResponse(offers);
+        }
     }
 }

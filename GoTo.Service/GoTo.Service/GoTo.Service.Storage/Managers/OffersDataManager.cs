@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using GoTo.Service.Storage.Intergace.Models;
 using GoTo.Service.Storage.Context;
 using System.Data.SqlClient;
+using System;
+
 namespace GoTo.Service.Storage.Managers
 {
     public sealed class OffersDataManager : IOffersDataManager
@@ -35,5 +37,17 @@ namespace GoTo.Service.Storage.Managers
              new SqlParameter("CreatedDateTime", offerDataModel.CreatedDateTime));
             return offerDataModel;
         }
+
+        public IReadOnlyCollection<OfferDataModel> GetOffersByAuthorId(string AuthorId)
+        {
+            //IReadOnlyCollection<OfferDataModel> currentOffers = db.Database.ExecuteSqlCommand(
+            //"EXEC  [GoTo].[GetOffersByUserId]  @AuthorId",
+            //new SqlParameter("AuthorId", offerDataModel.AuthorID));
+            //return currentOffers;
+            var dataModel = db.Database.SqlQuery<OfferDataModel>("[GoTo].GetOffersByAuthorId @AuthorId" ,new SqlParameter("AuthorId", AuthorId.ToString()));
+            return dataModel.ToArrayAsync().Result;
+        }
+
+    
     }
 }

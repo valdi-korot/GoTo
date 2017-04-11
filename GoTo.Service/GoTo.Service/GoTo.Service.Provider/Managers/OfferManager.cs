@@ -30,5 +30,13 @@ namespace GoTo.Service.Provider.Managers
             var offers = offersDataModel.Select(p => new Offer(p)).ToList();
             return offers;
         }
+
+        public IReadOnlyCollection<IOffer> GetOffersByAuthorId(string AuthorId)
+        {
+            //Question
+            var offersDataModel = _offersDataManager.GetOffersByAuthorId(AuthorId);
+            var offers = offersDataModel.Select(p => new Offer(p)).ToList();
+            return offers;   
+        }
     }
 }
