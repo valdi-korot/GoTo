@@ -8,7 +8,7 @@ namespace GoTo.Service.Provider.Interface.Models
 {
     public interface IOffer
     {
-        string Id { get; set; }
+        Guid Id { get; set; }
         string Title { get; set; }
         string Description { get; set; }
         double Longitude { get; set; }

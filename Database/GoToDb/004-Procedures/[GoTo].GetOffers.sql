@@ -3,16 +3,16 @@ GO
 CREATE PROCEDURE [GoTo].GetOffers
 AS
   SELECT
-   o.id       AS ID,
-   o.title       AS Title,
-   o.description  AS Description,   
-   o.Longitude AS Longitude,       
-   o.Latitude AS Latitude,        
-   o.AuthorID AS AuthorID,			
-   o.Status AS Status,
-   o.Type AS Type,				
-   o.MeetDateTime	AS MeetDateTime,
-   o.CreatedDateTime AS CreatedDateTime	
+   o.id                AS ID,
+   o.title             AS Title,
+   o.description       AS Description,   
+   o.Longitude         AS Longitude,       
+   o.Latitude          AS Latitude,        
+   o.AuthorID          AS AuthorID,			
+   o.Status            AS Status,
+   o.Type              AS Type,				
+   o.MeetDateTime	   AS MeetDateTime,
+   o.CreatedDateTime   AS CreatedDateTime	
   FROM [GoTo].Offers o
 /*
    INSERT INTO [GoTo].Offers 

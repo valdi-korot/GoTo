@@ -12,7 +12,7 @@ namespace GoTo.Service.Provider.Models
     internal sealed class Offer : IOffer
     {
         private readonly IOffersDataManager dataManager;
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public double Longitude { get; set; }
@@ -33,11 +33,12 @@ namespace GoTo.Service.Provider.Models
             Type = offerDataModel.Type;
             MeetDateTime = offerDataModel.MeetDateTime;
             CreatedDateTime = offerDataModel.CreatedDateTime;
+            Id = offerDataModel.Id;
         }
         internal Offer(IOffersDataManager offerDataManager)
         {
             dataManager = offerDataManager;
-            Id = Guid.NewGuid().ToString();
+            Id = Guid.NewGuid();
             CreatedDateTime = DateTime.Now;
         }
 
